@@ -1,19 +1,12 @@
 # This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import PyPDF2
+pdffileobj=open('test2.pdf','rb')
+pdfreader=PyPDF2.PdfFileReader(pdffileobj)
+x=pdfreader.numPages
+pageobj=pdfreader.getPage(x-1)
+text=pageobj.extractText()
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    print('My name is ')
-    print('Your name is ')
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('Hello World')
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+file1=open(r"C:/Users/David/Downloads\\1.txt","a")
+file1.writelines(text)
+file1.close()
